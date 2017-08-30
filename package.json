@@ -1,0 +1,20 @@
+{
+  "name": "boiler-room",
+  "version": "1.0.0",
+  "description": "Just enough to start having fun",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://"
+  },
+  "author": "Stéphane GARTI",
+  "license": "ISC",
+  "depedencies":    {
+    "express": "^4.15.4",
+    "lowdb": "^0.17.2",
+    "socket.io": "^2.0.3"
+  }
+}
