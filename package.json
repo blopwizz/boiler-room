@@ -12,7 +12,7 @@
   },
   "author": "Stéphane GARTI",
   "license": "ISC",
-  "depedencies":    {
+  "dependencies":    {
     "express": "^4.15.4",
     "lowdb": "^0.17.2",
     "socket.io": "^2.0.3"
