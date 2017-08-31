@@ -7,6 +7,9 @@ var FileSync = require("lowdb/adapters/FileSync");
 
 // Routes
 app.get('/', function (req, res) {
+	io.on('connection', function(socket) {
+		socket.emit('update', db.getState());
+	});
 	res.sendFile(__dirname + '/index.html');
 });
 
@@ -30,13 +33,12 @@ http.listen(3000, function() {
 io.on('connection', function (socket) {
 	socket.on('request: add', function (data) {
 		db.get('posts').push(data).write();
-		socket.emit('update', db.getState());
+		io.emit('update', db.getState());
 	});
 
 	socket.on('request: reset', function() {
-		var newState = { posts: [] };
+		var newState = {posts: []};
 		db.setState(newState);
-		socket.emit('update', db.getState());
-		console.log('rest request sent');
+		io.emit('update', db.getState());
 	})
 });
